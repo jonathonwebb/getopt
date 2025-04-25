@@ -3,7 +3,7 @@ package getopt_test
 import (
 	"testing"
 
-	"github.com/jon-codes/getopt"
+	"github.com/jonathonwebb/getopt"
 	"pgregory.net/rapid"
 )
 

@@ -1,4 +1,4 @@
-module github.com/jon-codes/getopt
+module github.com/jonathonwebb/getopt
 
 go 1.23.1
 

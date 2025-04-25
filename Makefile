@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-GOPKG := github.com/jon-codes/getopt
+GOPKG := github.com/jonathonwebb/getopt
 
 BINDIR := bin
 TMPDIR := tmp

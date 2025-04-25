@@ -1,8 +1,8 @@
 # getopt
-[![Go Reference](https://pkg.go.dev/badge/github.com/jon-codes/getopt.svg)](https://pkg.go.dev/github.com/jon-codes/getopt)
-[![CI](https://github.com/jon-codes/getopt/actions/workflows/ci.yml/badge.svg)](https://github.com/jon-codes/getopt/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jon-codes/getopt)](https://goreportcard.com/report/github.com/jon-codes/getopt)
-[![codecov](https://codecov.io/github/jon-codes/getopt/graph/badge.svg?token=CF7WDJOFVY)](https://codecov.io/github/jon-codes/getopt)
+[![Go Reference](https://pkg.go.dev/badge/github.com/jonathonwebb/getopt.svg)](https://pkg.go.dev/github.com/jonathonwebb/getopt)
+[![CI](https://github.com/jonathonwebb/getopt/actions/workflows/ci.yml/badge.svg)](https://github.com/jonathonwebb/getopt/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jonathonwebb/getopt)](https://goreportcard.com/report/github.com/jonathonwebb/getopt)
+[![codecov](https://codecov.io/github/jonathonwebb/getopt/graph/badge.svg?token=CF7WDJOFVY)](https://codecov.io/github/jonathonwebb/getopt)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 
 Package `getopt` provides a zero-dependency Go implementation of the Unix getopt function for parsing command-line options.
@@ -12,7 +12,7 @@ The `getopt` package supports parsing options using the POSIX convention, suppor
 ## Install
 
 ```
-go get github.com/jon-codes/getopt
+go get github.com/jonathonwebb/getopt
 ```
 
 ## Usage
@@ -56,16 +56,16 @@ for opt, err := range state.All(config) {
 This package uses [GNU libc](https://www.gnu.org/software/libc/) as a reference for behavior, since many expect the
 non-standard features it provides. This is accomplished via a C test generator that runs getopt for all functions and parsing modes.
 
-It supports the same configuration options as the GNU options via [Mode](https://pkg.go.dev/github.com/jon-codes/getopt#Mode):
-  - [ModeGNU](https://pkg.go.dev/github.com/jon-codes/getopt#ModeGNU): enables default behavior.
-  - [ModePosix](https://pkg.go.dev/github.com/jon-codes/getopt#ModePosix): enables the '+' compatibility mode, disabling permuting arguments and terminating parsing on the first parameter.
-  - [ModeInOrder](https://pkg.go.dev/github.com/jon-codes/getopt#ModeInOrder): enables the '-' optstring prefix mode, treating all parameters as though they were arguments to an option with character code 1.
+It supports the same configuration options as the GNU options via [Mode](https://pkg.go.dev/github.com/jonathonwebb/getopt#Mode):
+  - [ModeGNU](https://pkg.go.dev/github.com/jonathonwebb/getopt#ModeGNU): enables default behavior.
+  - [ModePosix](https://pkg.go.dev/github.com/jonathonwebb/getopt#ModePosix): enables the '+' compatibility mode, disabling permuting arguments and terminating parsing on the first parameter.
+  - [ModeInOrder](https://pkg.go.dev/github.com/jonathonwebb/getopt#ModeInOrder): enables the '-' optstring prefix mode, treating all parameters as though they were arguments to an option with character code 1.
 
-The specific libc function that is emulated can be configured via [Func](https://pkg.go.dev/github.com/jon-codes/getopt#Func):
-  - [FuncGetOpt](https://pkg.go.dev/github.com/jon-codes/getopt#FuncGetOpt): parse only traditional POSIX short options (e.g., -a).
-  - [FuncGetOptLong](https://pkg.go.dev/github.com/jon-codes/getopt#FuncGetOptLong): parse short options, and GNU extension long options (e.g.,
+The specific libc function that is emulated can be configured via [Func](https://pkg.go.dev/github.com/jonathonwebb/getopt#Func):
+  - [FuncGetOpt](https://pkg.go.dev/github.com/jonathonwebb/getopt#FuncGetOpt): parse only traditional POSIX short options (e.g., -a).
+  - [FuncGetOptLong](https://pkg.go.dev/github.com/jonathonwebb/getopt#FuncGetOptLong): parse short options, and GNU extension long options (e.g.,
     --option).
-  - [FuncGetOptLongOnly](https://pkg.go.dev/github.com/jon-codes/getopt#FuncGetOptLongOnly): parse short and long options, but allow long options to begin with a single dash (like [pkg/flag](https://pkg.go.dev/flag)).
+  - [FuncGetOptLongOnly](https://pkg.go.dev/github.com/jonathonwebb/getopt#FuncGetOptLongOnly): parse short and long options, but allow long options to begin with a single dash (like [pkg/flag](https://pkg.go.dev/flag)).
 
 The parser differs from GNU libc's getopt in the following ways:
   - It accepts multi-byte runes in short and long option definitions.
@@ -75,7 +75,7 @@ The parser differs from GNU libc's getopt in the following ways:
 
 ## API Documentation
 
-The full API documentation can be found at [pkg.go.dev](https://pkg.go.dev/github.com/jon-codes/getopt). The API for major version `1.x.x` is stable -- any breaking changes to the API will require a new major version.
+The full API documentation can be found at [pkg.go.dev](https://pkg.go.dev/github.com/jonathonwebb/getopt). The API for major version `1.x.x` is stable -- any breaking changes to the API will require a new major version.
 
 ## Acknowledgements
 
