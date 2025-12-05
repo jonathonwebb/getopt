@@ -22,6 +22,7 @@ TESTGEN_INCL := -I$(TESTGEN_SRCDIR) -I/usr/include
 TESTGEN_LIBS := -ljansson
 TESTGEN_INPUT := $(TESTGEN_DATADIR)/cases.json
 TESTGEN_OUTPUT := $(TESTGEN_DATADIR)/fixtures.json
+TESTGEN_META := $(TESTGEN_DATADIR)/meta
 
 ## all: run development tasks (default target)
 .PHONY: all
@@ -81,8 +82,14 @@ clean:
 $(TMPDIR) $(BINDIR) $(OBJDIR):
 	mkdir -p $@
 
-## testgen: generate test data
-testgen: $(TESTGEN_OUTPUT)
+## testgen: build testgen binary and generate test data
+testgen: clean $(TESTGEN_OUTPUT)
+	@echo "Generating metadata in $(TESTGEN_META)..."
+	@echo "Timestamp: $$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > $(TESTGEN_META)
+	@echo "Distro: $$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2- | tr -d '\"')" >> $(TESTGEN_META)
+	@echo "Kernel: $$(uname -sr)" >> $(TESTGEN_META)
+	@echo "Compiler: $$($(CC) --version | head -n 1)" >> $(TESTGEN_META)
+	@echo "Jansson: $$(pkg-config --modversion jansson 2>/dev/null || echo 'Unknown')" >> $(TESTGEN_META)
 
 $(TESTGEN_OUTPUT): $(TESTGEN_BIN) $(TESTGEN_INPUT)
 	$< -o $@ $(TESTGEN_INPUT)
